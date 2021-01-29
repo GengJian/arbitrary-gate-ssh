@@ -1,26 +1,24 @@
 //
-//  ViewController.swift
+//  WelcomeController.swift
 //  ArbitraryGateSSH
 //
 //  Created by Soul on 2021/1/29.
+//  Copyright © 2021 wzsm.io. All rights reserved.
 //
 
 import Cocoa
 
-class ViewController: NSViewController {
-
+class WelcomeController: NSViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Do view setup here.
     }
-
+    
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
-
-
+    
 }
-
