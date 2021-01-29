@@ -757,7 +757,7 @@
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1lH-jU-q7D">
                                         <rect key="frame" x="18" y="348" width="213" height="19"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="欢迎来到任意门，准备起飞 🛫️" id="pG2-ym-G0i">
-                                            <font key="font" size="15" name=".PingFangSC-Regular"/>
+                                            <font key="font" metaFont="system" size="15"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
