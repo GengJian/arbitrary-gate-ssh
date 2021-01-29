@@ -1,5 +1,5 @@
 //
-//  LogOutputController.swift
+//  RadarController.swift
 //  ArbitraryGateSSH
 //
 //  Created by Soul on 2021/1/29.
@@ -8,17 +8,37 @@
 
 import Cocoa
 
-class LogOutputController: NSViewController {
+public let kShowLogNotificationName : String = "kShowLogNotificationName"
+
+/// 日志页面 -> 雷达
+class RadarController: NSViewController {
     
     @IBOutlet var textView: NSTextView!
+    
+    deinit {
+        // 移除通知
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        debugPrint("从StoryBoard中加载RadarController...")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
         self.textView.isEditable = false
         
-        self.show(log: "✈️ Welcome to wenzhou airport ")
+        //监听通知
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: kShowLogNotificationName),
+                                               object: nil,
+                                               queue: .main) { (notify) in
+            let str = notify.object
+            self.show(log: str as! String)
+        }
         
+        self.show(log: "✈️ Welcome to wenzhou airport ")
     }
     
     func show(log newstr: String) -> Void {
@@ -33,7 +53,7 @@ class LogOutputController: NSViewController {
             .appending("\n")
             .appending(newstr)
             .appending("\n")
-    
+        
         self.textView.string = resLog
         // 日志自动滚动到最底部
 //        let range = resLog.range(of: newstr)
