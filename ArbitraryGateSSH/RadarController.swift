@@ -8,7 +8,7 @@
 
 import Cocoa
 
-public let kShowLogNotificationName : String = "kShowLogNotificationName"
+public let kShowLogNotificationName: NSNotification.Name = NSNotification.Name(rawValue: "kShowLogNotificationName")
 
 /// 日志页面 -> 雷达
 class RadarController: NSViewController {
@@ -31,7 +31,7 @@ class RadarController: NSViewController {
         self.textView.isEditable = false
         
         //监听通知
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: kShowLogNotificationName),
+        NotificationCenter.default.addObserver(forName: kShowLogNotificationName,
                                                object: nil,
                                                queue: .main) { (notify) in
             let str = notify.object

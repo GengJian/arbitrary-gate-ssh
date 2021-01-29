@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Alamofire
 
 enum TestDomainUrl : String {
     case CustomURL  = "Custom (Please fill in the input box below)"
@@ -30,5 +31,19 @@ class AirportViewModel: NSObject {
         ]
         return _testDomainList
     }()
+    
+    /// 模拟Get请求，测试是否有返回
+    /// - Parameter urlString: 域名地址
+    func requestGet(urlString: String) {
+        let dataRequest: DataRequest = AF.request(urlString,
+                                                  method: .get,
+                                                  encoding: URLEncoding.default,
+                                                  headers: [:])
+        dataRequest.responseData { (response) in
+            debugPrint(response)
+            NotificationCenter.default.post(name: kShowLogNotificationName,
+                                            object: "\(response)")
+        }
+    }
     
 }

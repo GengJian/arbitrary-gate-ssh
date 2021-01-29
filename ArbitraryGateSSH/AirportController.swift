@@ -39,6 +39,7 @@ class AirportController: NSViewController, NSComboBoxDataSource, NSComboBoxDeleg
     
     @IBAction func actionTestDomain(_ sender: Any) {
         self.postMessage(message: "👷 测试域名")
+        self.viewModel.requestGet(urlString: "https://www.baidu.com/")
     }
     
     // MARK: - NSComboBox DataSource & Delegate
@@ -70,7 +71,7 @@ class AirportController: NSViewController, NSComboBoxDataSource, NSComboBoxDeleg
         }
         
         debugPrint(message)
-        NotificationCenter.default.post(name: NSNotification.Name(kShowLogNotificationName),
+        NotificationCenter.default.post(name: kShowLogNotificationName,
                                         object: message)
         
     }
