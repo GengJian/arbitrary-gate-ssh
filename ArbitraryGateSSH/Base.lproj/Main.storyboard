@@ -939,6 +939,9 @@
                         <viewLayoutGuide key="safeArea" id="ohb-wd-KJX"/>
                         <viewLayoutGuide key="layoutMargins" id="FAR-Fl-z2s"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="wmg-l8-2oM" id="WuF-wV-KPI"/>
+                    </connections>
                 </viewController>
                 <customObject id="iR1-36-1dK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
